@@ -20,6 +20,9 @@ new dataApi()
     <div>
       <img src='../../assets/photographers/${photographer.portrait}' alt='Portrait de ${photographer.name}'>
       <h2 class="photographer_name">${photographer.name}</h2>
+      <h3 class="city">${photographer.city}</h3>
+      <h5 class="tagline">${photographer.tagline}</h5>
+      <h4 class="price">${photographer.price}€/jour</h4>
     </div>
     </a>
     `;

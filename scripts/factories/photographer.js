@@ -24,7 +24,7 @@ function photographerFactory(data) {
     //     pagephotographers.setAttribute("href","photographer.html?id="+id)
     //     const userPrice = document.createElement("h3");
     //     userPrice.textContent= price+"€/jour";
-    //     userPrice.className="prix";       
+    //     userPrice.className="price";       
     //     article.appendChild(pagephotographers)
     //     pagephotographers.appendChild(userImg);
     //     article.appendChild(userName);
