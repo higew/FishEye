@@ -3,6 +3,8 @@
 }
 
 .photograph-header {
+    display: flex;
+    flex-direction: row;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
@@ -46,6 +48,38 @@
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+}
+
+.photographer-container div {
+    display: flex;
+    flex-direction: row;
+}
+
+.photographer-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.photographer-container img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    padding-bottom: 15px;
+    object-fit: cover;
+    text-decoration: none;
+}
+
+.photographer-container .photographer-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.photographer-container .photographer_name {
+    margin: 0px;
+    padding: 0px;
+    color: #D3573C;
+    font-size: 34px;
+    font-weight: 200;
 }
 
 form {
