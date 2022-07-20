@@ -82,6 +82,20 @@
     font-weight: 200;
 }
 
+.media-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.media-container article img {
+    height: 200px;
+    width: 200px;
+    padding-bottom: 15px;
+    object-fit: cover;
+    text-decoration: none;
+}
+
 form {
     display: flex;
     width: 100%;

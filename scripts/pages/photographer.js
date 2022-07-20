@@ -29,11 +29,23 @@ new dataApi()
     data.media.map((media) => {
         if(media.photographerId == photographerId) {
             console.log("Id photo du photographe : " + media.id);
+            const mediaContainer = document.querySelector('.media-container');
+            const mediaCard = document.createElement('article');
             let htmlTemplate = `
-            <div>
                 <img src='../../assets/images/${media.image}' alt='${media.title}'>
-            </div>
             `;
+            // if (!media.video) {
+            //     let htmlTemplate = `
+            //         <img src='../../assets/images/${media.image}' alt='${media.title}'>
+            //     `;
+            // }
+            // else {
+            //     let htmlTemplate = `
+            //         <video src='../../assets/images/${media.video}' alt='${media.title}'>
+            //     `;
+            // }
+            mediaContainer.appendChild(mediaCard);
+            mediaCard.innerHTML += htmlTemplate;
         }
     })
 }) 
