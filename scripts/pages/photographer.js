@@ -31,21 +31,28 @@ new dataApi()
             console.log("Id photo du photographe : " + media.id);
             const mediaContainer = document.querySelector('.media-container');
             const mediaCard = document.createElement('article');
-            let htmlTemplate = `
-                <img src='../../assets/images/${media.image}' alt='${media.title}'>
-            `;
-            // if (!media.video) {
-            //     let htmlTemplate = `
-            //         <img src='../../assets/images/${media.image}' alt='${media.title}'>
-            //     `;
-            // }
-            // else {
-            //     let htmlTemplate = `
-            //         <video src='../../assets/images/${media.video}' alt='${media.title}'>
-            //     `;
-            // }
-            mediaContainer.appendChild(mediaCard);
-            mediaCard.innerHTML += htmlTemplate;
+            if (media.image) {
+                let htmlTemplate = `
+                    <img src='../../assets/images/${media.image}' alt='${media.title}'>
+                    <div class='media-info'>
+                        <p>${media.title}</p>
+                        <p>${media.likes}</p>
+                    </div>
+                `;
+                mediaContainer.appendChild(mediaCard);
+                mediaCard.innerHTML += htmlTemplate;
+            }
+            else {
+                let htmlTemplate = `
+                    <video controls src='../../assets/images/${media.video}' type="video/mp4"></video>
+                    <div class='media-info'>
+                        <p>${media.title}</p>
+                        <p>${media.likes}</p>
+                    </div>
+                `;
+                mediaContainer.appendChild(mediaCard);
+                mediaCard.innerHTML += htmlTemplate;
+            }
         }
     })
 }) 
