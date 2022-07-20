@@ -21,6 +21,7 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 50px;
 }
 
 .modal {
@@ -50,14 +51,11 @@
     text-align: center;
 }
 
-.photographer-container div {
-    display: flex;
-    flex-direction: row;
-}
-
 .photographer-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .photographer-container img {
@@ -71,6 +69,14 @@
 
 .photographer-container .photographer-info {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 50px;
+}
+
+.photographer-container .photographer-text-info {
+    display: flex;
     flex-direction: column;
 }
 
@@ -78,15 +84,32 @@
     margin: 0px;
     padding: 0px;
     color: #D3573C;
-    font-size: 34px;
+    font-size: 50px;
     font-weight: 200;
 }
 
+.photographer-container .city {
+    margin: 0px;
+    padding: 10px 0 10px 0;
+    font-size: 25px;
+    font-weight: 200;
+    color: #901C1C;
+}
+
+.photographer-container .tagline {
+    margin: 0px;
+    padding: 10px 0 10px 0;
+    font-size: 15px;
+    font-weight: 100;
+}
+
 .media-container {
+    margin: 100px 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 100px;
+    justify-content: center;
 }
 
 .media-container article {
@@ -115,6 +138,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.media-container .media-info p {
+    margin: 0;
 }
 
 form {
