@@ -1,4 +1,4 @@
-import {addIndex, addImgIndex} from "../factories/photographer.js";
+import addIndex from "../factories/photographer.js";
 
 let getURL = new URLSearchParams(window.location.search);
 let getId = getURL.get("id");
@@ -40,19 +40,10 @@ new dataApi()
                         <p>${media.title}</p>
                         <p><span class="like-count">${media.likes}</span> <i class="fa-solid fa-heart heart" onclick="like()"></i></p>
                     </div>
-                    <dialog id="myModal" class="img-modal">
-                        <span class="close cursor" onclick="closeModal()">&times;</span>
-                        <div class="modal-content">
-                            <div class="mySlides">
-                                <img class='imgModal' src='../../assets/images/${media.image}' alt='${media.title}'>
-                            </div>
-                        </div>
-                    </dialog>
                 `;
                 mediaContainer.appendChild(mediaCard);
                 mediaCard.innerHTML += htmlTemplate;
                 addIndex();
-                addImgIndex();
             }
             else {
                 let htmlTemplate = `
@@ -67,5 +58,12 @@ new dataApi()
             }
         }
     })
+    // const closeModal = document.getElementById('myModal');
+    // const closeBtn = document.querySelectorAll('close');
+    // window.addEventListener('keydown', (event) => {
+    //     if (event.key === "Escape") {
+    //         closeModal.close();
+    //     }
+    // });
     openModalPic();
 })
