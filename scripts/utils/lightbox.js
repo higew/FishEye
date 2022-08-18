@@ -2,7 +2,6 @@
 function openModalPic() {
     const mediaId = document.querySelectorAll('.media-container article');
     for (let i = 0; i <= mediaId.length - 1; i++) {
-        //const imgMedia = document.querySelectorAll('.media-container article img');
         mediaId[i].addEventListener("click", (event) => {
             event.preventDefault();
             //Getting all the info from the targeted article
@@ -36,12 +35,6 @@ function openModalPic() {
             mediaCard.open = true;
         });
     }
-    // for (let y = 0; y <= imgMedia.length - 1; y++) {
-    //     imgMedia[y].addEventListener("click", (event) =>  {
-    //         event.preventDefault();
-    //         modal.open = true;
-    //     })
-    // }
 }
 
 function prevMedia() {
@@ -79,7 +72,7 @@ function prevMedia() {
             //New caption included
             const captionCard = document.querySelector('.caption-container');
             let newCaptionTemplate = `
-            <p class='caption'>${newMediaAlt}</p>
+                <p class='caption'>${newMediaAlt}</p>
             `;
             modalContainer.appendChild(captionCard);
             captionCard.innerHTML += newCaptionTemplate;
@@ -91,7 +84,43 @@ function nextMedia() {
     const targetModal = document.getElementById('myModal');
     const targetDiv = targetModal.querySelector('.modal-content');
     const getMediaIndex = targetDiv.getAttribute('data-index');
-    console.log("Next data-index is " + (getMediaIndex + 1));
+    console.log("Next data-index is " + (parseInt(getMediaIndex) + 1));
+
+    //Delete Current img and caption opened on the dialog box
+    const slide = targetDiv.querySelector('.imgModal');
+    const captionSlide = targetDiv.querySelector('.caption');
+    slide.parentElement.removeChild(slide);
+    captionSlide.parentElement.removeChild(captionSlide);
+    //Changing data-index
+    targetDiv.setAttribute('data-index', (parseInt(getMediaIndex) + 1));
+    
+    //Getting the new data-index then charging new media
+    const mediaId = document.querySelectorAll('.media-container article');
+    for (let i = 0; i <= mediaId.length - 1; i++) {
+        if ((parseInt(getMediaIndex) + 1) == mediaId[i].getAttribute('data-index')) {
+            console.log(mediaId[i].childNodes);
+            const newMedia = mediaId[i].childNodes[1].getAttribute('src');
+            const newMediaAlt = mediaId[i].childNodes[1].getAttribute('alt');
+            console.log('New media is ' + newMedia)
+
+            //New Media included
+            const modalContainer = document.querySelector('.modal-content');
+            const modalCard = document.querySelector('.mySlides');
+            let newMediaTemplate = `
+                <img class='imgModal' src='${newMedia}' alt='${newMediaAlt}'>
+            `;
+            modalContainer.appendChild(modalCard);
+            modalCard.innerHTML += newMediaTemplate;
+    
+            //New caption included
+            const captionCard = document.querySelector('.caption-container');
+            let newCaptionTemplate = `
+                <p class='caption'>${newMediaAlt}</p>
+            `;
+            modalContainer.appendChild(captionCard);
+            captionCard.innerHTML += newCaptionTemplate;
+        }
+    }
 }
 
 // Close the Modal

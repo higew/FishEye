@@ -67,3 +67,36 @@ new dataApi()
     // });
     openModalPic();
 })
+
+function filter(value, medias) {
+    switch(value) {
+        case "popularity":
+            medias.sort((a, b) => {
+                return b.likes - a.likes
+            });
+        break;
+
+        case "date":
+            medias.sort((a, b) => {
+                return b.date - a.date
+            });
+        break;
+
+        case "title":
+            medias.sort((a, b) => {
+                return b.title - a.title
+            });
+        break;
+
+        default : 
+        break;
+    }
+    return medias;
+}
+
+const arrayMedia = await new dataApi().getData().then((data) => data.media.filter(media => {
+    return media.photographerId === photographerId
+}));
+console.log(arrayMedia);
+let value = "popularity";
+console.log(filter(value, arrayMedia));
