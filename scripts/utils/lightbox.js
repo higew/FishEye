@@ -57,6 +57,34 @@ function prevMedia() {
     captionSlide.parentElement.removeChild(captionSlide);
     //Changing data-index
     targetDiv.setAttribute('data-index', (getMediaIndex - 1));
+
+    //Getting the new data-index then charging new media
+    const mediaId = document.querySelectorAll('.media-container article');
+    for (let i = 0; i <= mediaId.length - 1; i++) {
+        if ((getMediaIndex - 1) == mediaId[i].getAttribute('data-index')) {
+            console.log(mediaId[i].childNodes);
+            const newMedia = mediaId[i].childNodes[1].getAttribute('src');
+            const newMediaAlt = mediaId[i].childNodes[1].getAttribute('alt');
+            console.log('New media is ' + newMedia)
+
+            //New Media included
+            const modalContainer = document.querySelector('.modal-content');
+            const modalCard = document.querySelector('.mySlides');
+            let newMediaTemplate = `
+                <img class='imgModal' src='${newMedia}' alt='${newMediaAlt}'>
+            `;
+            modalContainer.appendChild(modalCard);
+            modalCard.innerHTML += newMediaTemplate;
+
+            //New caption included
+            const captionCard = document.querySelector('.caption-container');
+            let newCaptionTemplate = `
+            <p class='caption'>${newMediaAlt}</p>
+            `;
+            modalContainer.appendChild(captionCard);
+            captionCard.innerHTML += newCaptionTemplate;
+        }
+    }
 }
 
 function nextMedia() {
@@ -70,7 +98,7 @@ function nextMedia() {
 function closeModal() {
     console.log("close modal called");
     const modal = document.getElementById("myModal");
-    const closeBtn = document.querySelectorAll('close');
+    //const closeBtn = document.querySelectorAll('close');
     modal.close();
     modal.parentElement.removeChild(modal);
 }
