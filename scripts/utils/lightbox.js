@@ -1,11 +1,11 @@
 // Open the Modal
 function openModalPic() {
-    const mediaId = document.querySelectorAll('.media-container article');
+    const mediaId = document.querySelectorAll('.media-container article img');
     for (let i = 0; i <= mediaId.length - 1; i++) {
         mediaId[i].addEventListener("click", (event) => {
             event.preventDefault();
             //Getting all the info from the targeted article
-            let i = event.currentTarget.getAttribute("data-index");
+            let i = event.target.parentNode.getAttribute("data-index");
             let mediaSrc = event.target.getAttribute("src");
             let mediaAlt = event.target.getAttribute("alt");
             
