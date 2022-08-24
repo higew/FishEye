@@ -74,7 +74,7 @@ new dataApi()
                     <video controls src='../../assets/images/${media.video}' type="video/mp4" alt='${media.title}' ></video>
                     <div class='media-info'>
                         <p>${media.title}</p>
-                        <p>${media.likes} <i class="fa-regular fa-heart"></i></p>
+                        <p><span class="like-count">${media.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
                     </div>
                 `;
                 mediaContainer.appendChild(mediaCard);
