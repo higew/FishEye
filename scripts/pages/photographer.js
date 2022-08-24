@@ -94,7 +94,24 @@ new dataApi()
     //         closeModal.close();
     //     }
     // });
+    console.log("total Likes for this photographer : " + totalLikeCount());
+    data.photographer.filter(photographer => {
+        if(photographer.id == photographerId) {
+            const likesAndPriceArea = document.getElementById("totalLikeAndPrice");
+            const likesAndPriceCard = document.createElement('div');
+            likesAndPriceCard.className = "areaBottomRight";
+            let likesAndPriceTemplate = `
+                <div>
+                    <span id="totalLike">${totalLikeCount()}</span> <i class="fa-solid fa-heart heart"></i>
+                </div>
+                <span>${photographer.price}€ / jour</span>
+            `;
+            likesAndPriceArea.appendChild(likesAndPriceCard);
+            likesAndPriceCard.innerHTML += likesAndPriceTemplate;
+        }
+    })
     openModalPic();
+    totalLikeCount();
     like();
 })
 

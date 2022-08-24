@@ -336,3 +336,26 @@ dialog {
 .dropdown:hover .dropbtn {
   background-color: #901C1C;
 }
+
+
+/* Total likes and price area */
+
+#totalLikeAndPrice {
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  background-color: #ea8b77;
+  padding: 20px;
+  width: 220px;
+  border-radius: 5px 5px 0 0;
+}
+
+#totalLikeAndPrice span {
+  font-size: 20px;
+}
+
+#totalLikeAndPrice .areaBottomRight {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
