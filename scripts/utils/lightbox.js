@@ -1,8 +1,8 @@
 // Open the Modal
 function openModalPic() {
-    const mediaId = document.querySelectorAll('.media-container article img');
+    const mediaId = document.querySelectorAll('.media-container article');
     for (let i = 0; i <= mediaId.length - 1; i++) {
-        mediaId[i].addEventListener("click", (event) => {
+        mediaId[i].firstElementChild.addEventListener("click", (event) => {
             event.preventDefault();
             //Getting all the info from the targeted article
             let i = event.target.parentNode.getAttribute("data-index");
@@ -17,7 +17,9 @@ function openModalPic() {
             console.log("data-index " + i + " selected");
             console.log(mediaId[i]);
             console.log(mediaSrc);
-            let modalTemplate = `
+            let mediaExtension = mediaSrc.split('.').pop();
+            if(mediaExtension === "jpg") {
+                let modalTemplate = `
                 <span class="close cursor" onClick="closeModal();">&times;</span>
                 <div class="modal-content" data-index="${i}">
                     <div class="mySlides">
@@ -29,10 +31,29 @@ function openModalPic() {
                         <p class='caption'>${mediaAlt}</p>
                     </div>
                 </div>
-            `;
-            mediaContainer.appendChild(mediaCard);
-            mediaCard.innerHTML += modalTemplate;
-            mediaCard.open = true;
+                `;
+                mediaContainer.appendChild(mediaCard);
+                mediaCard.innerHTML += modalTemplate;
+                mediaCard.open = true;
+            }
+            else {
+                let modalTemplate = `
+                <span class="close cursor" onClick="closeModal();">&times;</span>
+                <div class="modal-content" data-index="${i}">
+                    <div class="mySlides">
+                        <video class='imgModal' controls src='${mediaSrc}' type="video/mp4" alt='${mediaAlt}' ></video>
+                    </div>
+                    <span class='prev' onClick='prevMedia();'>&#10094;</span>
+                    <span class='next' onClick='nextMedia();'>&#10095;</span>
+                    <div class='caption-container'>
+                        <p class='caption'>${mediaAlt}</p>
+                    </div>
+                </div>
+                `;
+                mediaContainer.appendChild(mediaCard);
+                mediaCard.innerHTML += modalTemplate;
+                mediaCard.open = true;
+            }
         });
     }
 }
@@ -63,11 +84,22 @@ function prevMedia() {
             //New Media included
             const modalContainer = document.querySelector('.modal-content');
             const modalCard = document.querySelector('.mySlides');
-            let newMediaTemplate = `
-                <img class='imgModal' src='${newMedia}' alt='${newMediaAlt}'>
-            `;
-            modalContainer.appendChild(modalCard);
-            modalCard.innerHTML += newMediaTemplate;
+            let newMediaExtension = newMedia.split('.').pop();
+            console.log("New media extension is " + newMediaExtension);
+            if(newMediaExtension === "jpg") {
+                let newMediaTemplate = `
+                    <img class='imgModal' src='${newMedia}' alt='${newMediaAlt}'>
+                `;
+                modalContainer.appendChild(modalCard);
+                modalCard.innerHTML += newMediaTemplate;
+            }
+            else {
+                let newMediaTemplate = `
+                    <video class='imgModal' controls src='${newMedia}' type="video/mp4" alt='${newMediaAlt}' ></video>
+                `;
+                modalContainer.appendChild(modalCard);
+                modalCard.innerHTML += newMediaTemplate;
+            }
 
             //New caption included
             const captionCard = document.querySelector('.caption-container');
@@ -106,12 +138,22 @@ function nextMedia() {
             //New Media included
             const modalContainer = document.querySelector('.modal-content');
             const modalCard = document.querySelector('.mySlides');
-            let newMediaTemplate = `
-                <img class='imgModal' src='${newMedia}' alt='${newMediaAlt}'>
-            `;
-            modalContainer.appendChild(modalCard);
-            modalCard.innerHTML += newMediaTemplate;
-    
+            let newMediaExtension = newMedia.split('.').pop();
+            console.log("New media extension is " + newMediaExtension);
+            if(newMediaExtension === "jpg") {
+                let newMediaTemplate = `
+                    <img class='imgModal' src='${newMedia}' alt='${newMediaAlt}'>
+                `;
+                modalContainer.appendChild(modalCard);
+                modalCard.innerHTML += newMediaTemplate;
+            }
+            else {
+                let newMediaTemplate = `
+                    <video class='imgModal' controls src='${newMedia}' type="video/mp4" alt='${newMediaAlt}' ></video>
+                `;
+                modalContainer.appendChild(modalCard);
+                modalCard.innerHTML += newMediaTemplate;
+            }
             //New caption included
             const captionCard = document.querySelector('.caption-container');
             let newCaptionTemplate = `
