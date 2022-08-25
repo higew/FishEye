@@ -12,15 +12,14 @@ function like() {
                 likeSpan[i].classList.remove('liked');
                 likeSpan[i].innerHTML = parseInt(likeSpan[i].innerHTML) - 1;
                 console.log(totalLikeArea);
-                totalLikeArea.innerHTML = (parseInt(totalLike - 1));
+                totalLikeArea.innerHTML = (parseInt(totalLikeArea.innerHTML - 1));
             } else {
                 likeSpan[i].classList.add('liked');
                 heartIcon[i].classList.remove('fa-regular');
                 heartIcon[i].classList.add('fa-solid');
                 likeSpan[i].innerHTML = parseInt(likeSpan[i].innerHTML) + 1;
                 console.log(totalLikeArea);
-                totalLikeArea.innerHTML = parseInt(totalLike + 1);
-                
+                totalLikeArea.innerHTML = parseInt(parseInt(totalLikeArea.innerHTML) + 1);
             }
         })
     }
