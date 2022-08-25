@@ -5,6 +5,7 @@ let getURL = new URLSearchParams(window.location.search);
 let getId = getURL.get("id");
 let photographerId = parseInt(getId);
 
+//Get all the photographer then get the one with the same ID as URL
 import dataApi from "../utils/fetchdata.js";
 new dataApi()
 .getData().then((data) => {
@@ -29,6 +30,8 @@ new dataApi()
             console.log("L'id du photographe est " + photographer.id);
         }
     })
+
+    //Filter button
     const filterLinks = document.querySelectorAll(".filter_link");
     const buttonOpenMenu = document.querySelector("#button_open_menu button");
     Array.from(filterLinks).forEach((filter) => {
@@ -52,6 +55,8 @@ new dataApi()
             return value
         }
     })
+
+    //Get all the medias then only get medias = to the photographer ID from URL
     const arrayMedia = data.media.filter(media => {
         if(media.photographerId == photographerId) {
             console.log("Id photo du photographe : " + media.id);
@@ -88,12 +93,14 @@ new dataApi()
     //console.log(filter(value, media));
 
     // const closeModal = document.getElementById('myModal');
-    // const closeBtn = document.querySelectorAll('close');
+    // //const closeBtn = document.querySelectorAll('close');
     // window.addEventListener('keydown', (event) => {
     //     if (event.key === "Escape") {
     //         closeModal.close();
     //     }
     // });
+
+    //Total likes and price area
     console.log("total Likes for this photographer : " + totalLikeCount());
     data.photographer.filter(photographer => {
         if(photographer.id == photographerId) {
@@ -110,6 +117,8 @@ new dataApi()
             likesAndPriceCard.innerHTML += likesAndPriceTemplate;
         }
     })
+
+    //Calling the functions
     openModalPic();
     totalLikeCount();
     like();

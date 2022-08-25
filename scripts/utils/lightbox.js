@@ -54,6 +54,14 @@ function openModalPic() {
                 mediaCard.innerHTML += modalTemplate;
                 mediaCard.open = true;
             }
+            // Close the modal with escape key
+            const closeModal = document.getElementById('myModal');
+            window.addEventListener('keydown', (event) => {
+                if (event.key === "Escape") {
+                    closeModal.close();
+                    closeModal.parentElement.removeChild(closeModal);
+                }
+            });
         });
     }
 }
