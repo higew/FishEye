@@ -63,6 +63,39 @@ data.photographer.map((photographer) => {
       return media.photographerId === photographerId;
     });
 
+  function mediaFiltered() {
+    arrayMedia.forEach((arrayMedia) => {
+      if (arrayMedia.photographerId == photographerId) {
+        const mediaContainer = document.querySelector(".media-container");
+        const mediaCard = document.createElement("article");
+        if (arrayMedia.image) {
+          let htmlTemplate = `
+                      <img data-id="${arrayMedia.id}" src='../../assets/images/${arrayMedia.image}' alt='${arrayMedia.title}'>
+                      <div class='media-info'>
+                          <p>${arrayMedia.title}</p>
+                          <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
+                      </div>
+                  `;
+          mediaContainer.appendChild(mediaCard);
+          mediaCard.innerHTML += htmlTemplate;
+          addIndex();
+        } else {
+          let htmlTemplate = `
+                      <video controls src='../../assets/images/${arrayMedia.video}' type="video/mp4" alt='${arrayMedia.title}' ></video>
+                      <div class='media-info'>
+                          <p>${arrayMedia.title}</p>
+                          <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
+                      </div>
+                  `;
+          mediaContainer.appendChild(mediaCard);
+          mediaCard.innerHTML += htmlTemplate;
+          addIndex();
+        }
+      }
+      return arrayMedia.photographerId === photographerId;
+    });
+  }
+  
   //Filter button
   const btnFilter = document.querySelector(".dropdown-content");
   console.log(btnFilter);
@@ -78,36 +111,7 @@ data.photographer.map((photographer) => {
       value = "date";
       filter(value, arrayMedia);
       mediaContainer.innerHTML = "";
-      arrayMedia.forEach((arrayMedia) => {
-        if (arrayMedia.photographerId == photographerId) {
-          const mediaContainer = document.querySelector(".media-container");
-          const mediaCard = document.createElement("article");
-          if (arrayMedia.image) {
-            let htmlTemplate = `
-                        <img data-id="${arrayMedia.id}" src='../../assets/images/${arrayMedia.image}' alt='${arrayMedia.title}'>
-                        <div class='media-info'>
-                            <p>${arrayMedia.title}</p>
-                            <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
-                        </div>
-                    `;
-            mediaContainer.appendChild(mediaCard);
-            mediaCard.innerHTML += htmlTemplate;
-            addIndex();
-          } else {
-            let htmlTemplate = `
-                        <video controls src='../../assets/images/${arrayMedia.video}' type="video/mp4" alt='${arrayMedia.title}' ></video>
-                        <div class='media-info'>
-                            <p>${arrayMedia.title}</p>
-                            <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
-                        </div>
-                    `;
-            mediaContainer.appendChild(mediaCard);
-            mediaCard.innerHTML += htmlTemplate;
-            addIndex();
-          }
-        }
-        return arrayMedia.photographerId === photographerId;
-      });
+      mediaFiltered();
       openModalPic();
       totalLikeCount();
       like();
@@ -116,36 +120,7 @@ data.photographer.map((photographer) => {
       value = "popularity";
       filter(value, arrayMedia);
       mediaContainer.innerHTML = "";
-      arrayMedia.forEach((arrayMedia) => {
-        if (arrayMedia.photographerId == photographerId) {
-          const mediaContainer = document.querySelector(".media-container");
-          const mediaCard = document.createElement("article");
-          if (arrayMedia.image) {
-            let htmlTemplate = `
-                        <img data-id="${arrayMedia.id}" src='../../assets/images/${arrayMedia.image}' alt='${arrayMedia.title}'>
-                        <div class='media-info'>
-                            <p>${arrayMedia.title}</p>
-                            <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
-                        </div>
-                    `;
-            mediaContainer.appendChild(mediaCard);
-            mediaCard.innerHTML += htmlTemplate;
-            addIndex();
-          } else {
-            let htmlTemplate = `
-                        <video controls src='../../assets/images/${arrayMedia.video}' type="video/mp4" alt='${arrayMedia.title}' ></video>
-                        <div class='media-info'>
-                            <p>${arrayMedia.title}</p>
-                            <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
-                        </div>
-                    `;
-            mediaContainer.appendChild(mediaCard);
-            mediaCard.innerHTML += htmlTemplate;
-            addIndex();
-          }
-        }
-        return arrayMedia.photographerId === photographerId;
-      });
+      mediaFiltered();
       openModalPic();
       totalLikeCount();
       like();
@@ -154,36 +129,7 @@ data.photographer.map((photographer) => {
       value = "title";
       filter(value, arrayMedia);
       mediaContainer.innerHTML = "";
-      arrayMedia.forEach((arrayMedia) => {
-        if (arrayMedia.photographerId == photographerId) {
-          const mediaContainer = document.querySelector(".media-container");
-          const mediaCard = document.createElement("article");
-          if (arrayMedia.image) {
-            let htmlTemplate = `
-                        <img data-id="${arrayMedia.id}" src='../../assets/images/${arrayMedia.image}' alt='${arrayMedia.title}'>
-                        <div class='media-info'>
-                            <p>${arrayMedia.title}</p>
-                            <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
-                        </div>
-                    `;
-            mediaContainer.appendChild(mediaCard);
-            mediaCard.innerHTML += htmlTemplate;
-            addIndex();
-          } else {
-            let htmlTemplate = `
-                        <video controls src='../../assets/images/${arrayMedia.video}' type="video/mp4" alt='${arrayMedia.title}' ></video>
-                        <div class='media-info'>
-                            <p>${arrayMedia.title}</p>
-                            <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
-                        </div>
-                    `;
-            mediaContainer.appendChild(mediaCard);
-            mediaCard.innerHTML += htmlTemplate;
-            addIndex();
-          }
-        }
-        return arrayMedia.photographerId === photographerId;
-      });
+      mediaFiltered();
       openModalPic();
       totalLikeCount();
       like();
