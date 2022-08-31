@@ -3,7 +3,7 @@ function displayModal() {
 	modal.style.display = "block";
 }
 
-function closeModal() {
+function closeContactModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
 }

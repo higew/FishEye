@@ -10,8 +10,7 @@ import dataApi from "../utils/fetchdata.js";
 new dataApi().getData().then((data) => {
 data.photographer.map((photographer) => {
     if (photographer.id == photographerId) {
-      const photographerContainer =
-        document.querySelector(".photograph-header");
+      const photographerContainer = document.querySelector(".photograph-header");
       const photographerCard = document.createElement("article");
       photographerCard.className += "photographer-container";
       let htmlTemplate = `
@@ -28,6 +27,9 @@ data.photographer.map((photographer) => {
       photographerContainer.appendChild(photographerCard);
       photographerCard.innerHTML += htmlTemplate;
       console.log("L'id du photographe est " + photographer.id);
+      const modalContainer = document.getElementById('modalTitle');
+      console.log(modalContainer);
+      modalContainer.innerHTML += ("<br>" + photographer.name);
     }
   });
 
