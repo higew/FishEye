@@ -39,14 +39,33 @@
           <h2 id="modalTitle">Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeContactModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-            <label>Nom</label>
-						<input />
-            <label>Email</label>
-						<input />
+				<form name="reserve"
+        action="index.html"
+        method="get"
+        onsubmit="return validate();">
+					<div class="formData" data-error="Le champ doit avoir un minimum de 2 caractères (pas de chiffre autorisé)." >
+						<label for="first">Prénom</label>
+						<input class="text-control"
+            type="text"
+            id="first"
+            name="first"
+            minlength="2"/>
+          </div>
+          <div class="formData" data-error="Le champ doit avoir un minimum de 2 caractères (pas de chiffre autorisé).">
+            <label for="last">Nom</label>
+						<input class="text-control"
+            type="text"
+            id="last"
+            name="last"/>
+          </div>
+          <div class="formData" data-error="L'email doit être bien formaté comme : email@exemple.com">
+            <label for="email">Email</label>
+						<input class="text-control"
+            type="email"
+            id="email"
+            name="email"/>
+          </div>
+          <div>
             <label>Votre message</label>
 						<textarea></textarea>
 					</div>
