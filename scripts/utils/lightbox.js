@@ -62,6 +62,18 @@ function openModalPic() {
                     closeModal.parentElement.removeChild(closeModal);
                 }
             });
+            // Display the next media with the arrow right of the keyboard
+            window.addEventListener('keydown', (event) => {
+                if (event.key === "ArrowRight") {
+                    nextMedia();
+                }
+            });
+            // Display the previous media with the arrow left of the keyboard
+            window.addEventListener('keydown', (event) => {
+                if (event.key === "ArrowLeft") {
+                    prevMedia();
+                }
+            });
         });
     }
 }
