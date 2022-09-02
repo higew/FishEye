@@ -12,7 +12,6 @@ function like() {
                 heartIcon[i].classList.add('fa-regular');
                 likeSpan[i].classList.remove('liked');
                 likeSpan[i].innerHTML = parseInt(likeSpan[i].innerHTML) - 1;
-                console.log(totalLikeArea);
                 //Then remove it to the total
                 totalLikeArea.innerHTML = (parseInt(totalLikeArea.innerHTML - 1));
             }
@@ -22,7 +21,6 @@ function like() {
                 heartIcon[i].classList.remove('fa-regular');
                 heartIcon[i].classList.add('fa-solid');
                 likeSpan[i].innerHTML = parseInt(likeSpan[i].innerHTML) + 1;
-                console.log(totalLikeArea);
                 //Then add it to the total
                 totalLikeArea.innerHTML = parseInt(parseInt(totalLikeArea.innerHTML) + 1);
             }

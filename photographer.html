@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/photographer.css" rel="stylesheet" type="text/css" />
@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="Logo du site FishEye" />
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -37,7 +37,7 @@
 			<div class="modal">
 				<header>
           <h2 id="modalTitle">Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeContactModal()" />
+          <img src="assets/icons/close.svg" alt="Fermer la page" onclick="closeContactModal()" />
         </header>
 				<form name="reserve"
         action="index.html"
@@ -66,8 +66,11 @@
             name="email"/>
           </div>
           <div>
-            <label>Votre message</label>
-						<textarea></textarea>
+            <label for="message">Votre message</label>
+						<textarea class="text-control"
+            id="message"
+            name="message"
+            ></textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>

@@ -54,22 +54,19 @@ function openModalPic() {
                 mediaCard.innerHTML += modalTemplate;
                 mediaCard.open = true;
             }
-            // Close the modal with escape key
+            //Keyboard actions
             const closeModal = document.getElementById('myModal');
             window.addEventListener('keydown', (event) => {
+                // Close the modal with escape key
                 if (event.key === "Escape") {
                     closeModal.close();
                     closeModal.parentElement.removeChild(closeModal);
                 }
-            });
-            // Display the next media with the arrow right of the keyboard
-            window.addEventListener('keydown', (event) => {
+                // Display the next media with the arrow right of the keyboard
                 if (event.key === "ArrowRight") {
                     nextMedia();
                 }
-            });
-            // Display the previous media with the arrow left of the keyboard
-            window.addEventListener('keydown', (event) => {
+                // Display the previous media with the arrow left of the keyboard
                 if (event.key === "ArrowLeft") {
                     prevMedia();
                 }

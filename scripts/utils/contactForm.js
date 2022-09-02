@@ -72,7 +72,7 @@ function isEmailValid () {
 }
 
 function validate () {
-    console.log("Email : " + email.value + " Prénom :" + firstName.value + " Nom :" + lastName.value);
+    console.log("Email : " + email.value + " Prénom : " + firstName.value + " Nom : " + lastName.value);
     //clean the modal and add the text validation
     document.querySelector('.modal').innerHTML = " ";
     modalBody.style.height = "800px";
