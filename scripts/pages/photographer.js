@@ -39,7 +39,7 @@ data.photographer.map((photographer) => {
         const mediaCard = document.createElement("article");
         if (media.image) {
           let htmlTemplate = `
-                      <img data-id="${media.id}" src='../../assets/images/${media.image}' alt='${media.title}'>
+                      <img data-id="${media.id}" src='../../assets/images/${media.image}' alt='${media.title}' tabindex="0">
                       <div class='media-info'>
                           <p>${media.title}</p>
                           <p><span class="like-count">${media.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
@@ -50,7 +50,7 @@ data.photographer.map((photographer) => {
           addIndex();
         } else {
           let htmlTemplate = `
-                      <video src='../../assets/images/${media.video}' type="video/mp4" alt='${media.title}' ></video>
+                      <video src='../../assets/images/${media.video}' type="video/mp4" alt='${media.title}' tabindex="0"></video>
                       <div class='media-info'>
                           <p>${media.title}</p>
                           <p><span class="like-count">${media.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
@@ -58,6 +58,7 @@ data.photographer.map((photographer) => {
                   `;
           mediaContainer.appendChild(mediaCard);
           mediaCard.innerHTML += htmlTemplate;
+          addIndex();
         }
       }
       return media.photographerId === photographerId;
@@ -70,7 +71,7 @@ data.photographer.map((photographer) => {
         const mediaCard = document.createElement("article");
         if (arrayMedia.image) {
           let htmlTemplate = `
-                      <img data-id="${arrayMedia.id}" src='../../assets/images/${arrayMedia.image}' alt='${arrayMedia.title}'>
+                      <img data-id="${arrayMedia.id}" src='../../assets/images/${arrayMedia.image}' alt='${arrayMedia.title}' tabindex="0">
                       <div class='media-info'>
                           <p>${arrayMedia.title}</p>
                           <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
@@ -81,7 +82,7 @@ data.photographer.map((photographer) => {
           addIndex();
         } else {
           let htmlTemplate = `
-                      <video src='../../assets/images/${arrayMedia.video}' type="video/mp4" alt='${arrayMedia.title}' ></video>
+                      <video src='../../assets/images/${arrayMedia.video}' type="video/mp4" alt='${arrayMedia.title}' tabindex="0"></video>
                       <div class='media-info'>
                           <p>${arrayMedia.title}</p>
                           <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>

@@ -1,6 +1,14 @@
 function displayModal() {
     const modal = document.getElementById("contact_modal");
+    const closeModalBtn = document.querySelector(".closeBtn");
     modal.style.display = "block";
+    setTimeout(() => closeModalBtn.focus(), 1);
+    window.addEventListener('keydown', (event) => {
+        // Close the modal with escape key
+        if (event.key === "Escape") {
+            modal.style.display = "none";
+        }
+    });
 }
 
 function closeContactModal() {
@@ -97,6 +105,7 @@ function contentValidate () {
     btn.className = "contact_button";
     btn.style.marginTop = "320px";
     //function for the close btn
+    setTimeout(() => btn.focus(), 1);
     btn.onclick = function() {
         modalBody.style.display = "none";
     };
