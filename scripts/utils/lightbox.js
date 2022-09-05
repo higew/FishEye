@@ -14,9 +14,6 @@ function openModalPic() {
             const mediaCard = document.createElement('dialog');
             mediaCard.id = "myModal";
             mediaCard.className = "img-modal";
-            console.log("data-index " + i + " selected");
-            console.log(mediaId[i]);
-            console.log(mediaSrc);
             let mediaExtension = mediaSrc.split('.').pop();
             if(mediaExtension === "jpg") {
                 let modalTemplate = `
@@ -79,7 +76,6 @@ function prevMedia() {
     const targetModal = document.getElementById('myModal');
     const targetDiv = targetModal.querySelector('.modal-content');
     const getMediaIndex = targetDiv.getAttribute('data-index');
-    console.log("Prev data-index is " + (getMediaIndex - 1));
 
     //Delete Current img and caption opened on the dialog box
     const slide = targetDiv.querySelector('.imgModal');
@@ -93,16 +89,13 @@ function prevMedia() {
     const mediaId = document.querySelectorAll('.media-container article');
     for (let i = 0; i <= mediaId.length - 1; i++) {
         if ((getMediaIndex - 1) == mediaId[i].getAttribute('data-index')) {
-            console.log(mediaId[i].childNodes);
             const newMedia = mediaId[i].childNodes[1].getAttribute('src');
             const newMediaAlt = mediaId[i].childNodes[1].getAttribute('alt');
-            console.log('New media is ' + newMedia)
 
             //New Media included
             const modalContainer = document.querySelector('.modal-content');
             const modalCard = document.querySelector('.mySlides');
             let newMediaExtension = newMedia.split('.').pop();
-            console.log("New media extension is " + newMediaExtension);
             if(newMediaExtension === "jpg") {
                 let newMediaTemplate = `
                     <img class='imgModal' src='${newMedia}' alt='${newMediaAlt}'>
@@ -133,7 +126,6 @@ function nextMedia() {
     const targetModal = document.getElementById('myModal');
     const targetDiv = targetModal.querySelector('.modal-content');
     const getMediaIndex = targetDiv.getAttribute('data-index');
-    console.log("Next data-index is " + (parseInt(getMediaIndex) + 1));
 
     //Delete Current img and caption opened on the dialog box
     const slide = targetDiv.querySelector('.imgModal');
@@ -147,16 +139,13 @@ function nextMedia() {
     const mediaId = document.querySelectorAll('.media-container article');
     for (let i = 0; i <= mediaId.length - 1; i++) {
         if ((parseInt(getMediaIndex) + 1) == mediaId[i].getAttribute('data-index')) {
-            console.log(mediaId[i].childNodes);
             const newMedia = mediaId[i].childNodes[1].getAttribute('src');
             const newMediaAlt = mediaId[i].childNodes[1].getAttribute('alt');
-            console.log('New media is ' + newMedia)
 
             //New Media included
             const modalContainer = document.querySelector('.modal-content');
             const modalCard = document.querySelector('.mySlides');
             let newMediaExtension = newMedia.split('.').pop();
-            console.log("New media extension is " + newMediaExtension);
             if(newMediaExtension === "jpg") {
                 let newMediaTemplate = `
                     <img class='imgModal' src='${newMedia}' alt='${newMediaAlt}'>
@@ -184,7 +173,6 @@ function nextMedia() {
 
 // Close the Modal
 function closeModal() {
-    console.log("close modal called");
     const modal = document.getElementById("myModal");
     //const closeBtn = document.querySelectorAll('close');
     modal.close();

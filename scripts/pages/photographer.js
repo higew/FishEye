@@ -26,7 +26,6 @@ data.photographer.map((photographer) => {
             `;
       photographerContainer.appendChild(photographerCard);
       photographerCard.innerHTML += htmlTemplate;
-      console.log("L'id du photographe est " + photographer.id);
       const modalContainer = document.getElementById('modalTitle');
       modalContainer.innerHTML += ("<br>" + photographer.name);
     }
@@ -104,7 +103,6 @@ data.photographer.map((photographer) => {
   let value = "default";
   btnFilter.addEventListener("click", (event) => {
     const type = event.target.getAttribute("data-filter-type");
-    console.log(type);
     if (type === "date") {
       buttonOpenMenu.innerHTML = "Date";
       value = "date";
