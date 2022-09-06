@@ -70,7 +70,7 @@ data.photographer.map((photographer) => {
         const mediaCard = document.createElement("article");
         if (arrayMedia.image) {
           let htmlTemplate = `
-                      <img data-id="${arrayMedia.id}" src='../../assets/images/${arrayMedia.image}' alt='${arrayMedia.title}' tabindex="0">
+                      <img data-id="${arrayMedia.id}" src='assets/images/${arrayMedia.image}' alt='${arrayMedia.title}' tabindex="0">
                       <div class='media-info'>
                           <p>${arrayMedia.title}</p>
                           <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
@@ -81,7 +81,7 @@ data.photographer.map((photographer) => {
           addIndex();
         } else {
           let htmlTemplate = `
-                      <video src='../../assets/images/${arrayMedia.video}' type="video/mp4" alt='${arrayMedia.title}' tabindex="0"></video>
+                      <video src='assets/images/${arrayMedia.video}' type="video/mp4" alt='${arrayMedia.title}' tabindex="0"></video>
                       <div class='media-info'>
                           <p>${arrayMedia.title}</p>
                           <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>

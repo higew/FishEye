@@ -9,7 +9,7 @@ new dataApi()
     let htmlTemplate = `
     <a href='photographer.html?id=${photographer.id}'>
       <div>
-        <img src='../../assets/photographers/${photographer.portrait}' alt='Portrait de ${photographer.name}'>
+        <img src='assets/photographers/${photographer.portrait}' alt='Portrait de ${photographer.name}'>
         <h1 class="photographer_name">${photographer.name}</h1>
         <h2 class="city">${photographer.city}</h2>
         <h3 class="tagline">${photographer.tagline}</h3>
