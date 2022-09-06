@@ -17,13 +17,13 @@ function openModalPic() {
             let mediaExtension = mediaSrc.split('.').pop();
             if(mediaExtension === "jpg") {
                 let modalTemplate = `
-                <span class="close cursor" onClick="closeModal();">&times;</span>
+                <span class="close cursor" aria-label='Fermer' onClick="closeModal();">&times;</span>
                 <div class="modal-content" data-index="${i}">
                     <div class="mySlides">
                         <img class='imgModal' src='${mediaSrc}' alt='${mediaAlt}'>
                     </div>
-                    <span class='prev' onClick='prevMedia();'>&#10094;</span>
-                    <span class='next' onClick='nextMedia();'>&#10095;</span>
+                    <span class='prev' aria-label='Précédent' onClick='prevMedia();'>&#10094;</span>
+                    <span class='next' aria-label='Suivant' onClick='nextMedia();'>&#10095;</span>
                     <div class='caption-container'>
                         <p class='caption'>${mediaAlt}</p>
                     </div>
@@ -35,13 +35,13 @@ function openModalPic() {
             }
             else {
                 let modalTemplate = `
-                <span class="close cursor" onClick="closeModal();">&times;</span>
+                <span class="close cursor" aria-label='Fermer' onClick="closeModal();">&times;</span>
                 <div class="modal-content" data-index="${i}">
                     <div class="mySlides">
                         <video class='imgModal' controls src='${mediaSrc}' type="video/mp4" alt='${mediaAlt}' ></video>
                     </div>
-                    <span class='prev' onClick='prevMedia();'>&#10094;</span>
-                    <span class='next' onClick='nextMedia();'>&#10095;</span>
+                    <span class='prev' aria-label='Précédent' onClick='prevMedia();'>&#10094;</span>
+                    <span class='next' aria-label='Suivant' onClick='nextMedia();'>&#10095;</span>
                     <div class='caption-container'>
                         <p class='caption'>${mediaAlt}</p>
                     </div>

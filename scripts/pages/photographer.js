@@ -16,12 +16,12 @@ data.photographer.map((photographer) => {
       let htmlTemplate = `
             <div class="photographer-info">
                 <div class="photographer-text-info">
-                    <h1 class="photographer_name">${photographer.name}</h1>
-                    <h2 class="city">${photographer.city}</h2>
-                    <h3 class="tagline">${photographer.tagline}</h3>
+                    <h1 class="photographer_name" aria-label="Nom">${photographer.name}</h1>
+                    <h2 class="city" aria-label="Ville">${photographer.city}</h2>
+                    <h3 class="tagline" aria-label="Citation">${photographer.tagline}</h3>
                 </div>
-                <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-                <img src='../../assets/photographers/${photographer.portrait}' alt='Portrait de ${photographer.name}'>
+                <button class="contact_button" aria-label="Contact" onclick="displayModal()">Contactez-moi</button>
+                <img src='assets/photographers/${photographer.portrait}' alt='Portrait de ${photographer.name}'>
             </div>
             `;
       photographerContainer.appendChild(photographerCard);
@@ -36,12 +36,15 @@ data.photographer.map((photographer) => {
       if (media.photographerId == photographerId) {
         const mediaContainer = document.querySelector(".media-container");
         const mediaCard = document.createElement("article");
+        mediaCard.setAttribute('tabindex', 0);
+        mediaCard.setAttribute('role', 'button');
+        mediaCard.setAttribute('aria-label', "Ouvrir la Lightbox de " + media.title);
         if (media.image) {
           let htmlTemplate = `
-                      <img data-id="${media.id}" src='../../assets/images/${media.image}' alt='${media.title}' tabindex="0">
+                      <img data-id="${media.id}" src='assets/images/${media.image}' alt='${media.title}' role="button" tabindex="0">
                       <div class='media-info'>
                           <p>${media.title}</p>
-                          <p><span class="like-count">${media.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
+                          <p><span class="like-count">${media.likes}</span> <i class="fa-regular fa-heart heart" alt="Bouton Like pour ${media.title}" tabindex="0"></i></p>
                       </div>
                   `;
           mediaContainer.appendChild(mediaCard);
@@ -49,10 +52,10 @@ data.photographer.map((photographer) => {
           addIndex();
         } else {
           let htmlTemplate = `
-                      <video src='../../assets/images/${media.video}' type="video/mp4" alt='${media.title}' tabindex="0"></video>
+                      <video src='assets/images/${media.video}' type="video/mp4" alt='${media.title}'></video>
                       <div class='media-info'>
                           <p>${media.title}</p>
-                          <p><span class="like-count">${media.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
+                          <p><span class="like-count">${media.likes}</span> <i class="fa-regular fa-heart heart" alt="Bouton Like pour ${media.title}" tabindex="0"></i></p>
                       </div>
                   `;
           mediaContainer.appendChild(mediaCard);
@@ -68,12 +71,15 @@ data.photographer.map((photographer) => {
       if (arrayMedia.photographerId == photographerId) {
         const mediaContainer = document.querySelector(".media-container");
         const mediaCard = document.createElement("article");
+        mediaCard.setAttribute('tabindex', 0);
+        mediaCard.setAttribute('role', 'button');
+        mediaCard.setAttribute('aria-label', "Ouvrir la Lightbox de " + arrayMedia.title);
         if (arrayMedia.image) {
           let htmlTemplate = `
                       <img data-id="${arrayMedia.id}" src='assets/images/${arrayMedia.image}' alt='${arrayMedia.title}' tabindex="0">
                       <div class='media-info'>
                           <p>${arrayMedia.title}</p>
-                          <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
+                          <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart" alt="Bouton Like pour ${arrayMedia.title}" tabindex="0"></i></p>
                       </div>
                   `;
           mediaContainer.appendChild(mediaCard);
@@ -84,7 +90,7 @@ data.photographer.map((photographer) => {
                       <video src='assets/images/${arrayMedia.video}' type="video/mp4" alt='${arrayMedia.title}' tabindex="0"></video>
                       <div class='media-info'>
                           <p>${arrayMedia.title}</p>
-                          <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart"></i></p>
+                          <p><span class="like-count">${arrayMedia.likes}</span> <i class="fa-regular fa-heart heart" alt="Bouton Like pour ${arrayMedia.title}" tabindex="0"></i></p>
                       </div>
                   `;
           mediaContainer.appendChild(mediaCard);

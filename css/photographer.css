@@ -39,6 +39,11 @@
     margin: auto;
 }
 
+#modalTitle {
+    font-size: 50px;
+    font-weight: 100;
+}
+
 .modal header {
     justify-content: space-between;
     width: 100%;
@@ -363,15 +368,6 @@ dialog {
   text-decoration: none;
   display: block;
 }
-/* .dropdown-content a:before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  height  : 1px;
-  width   : 50%;
-  border-bottom:1px solid magenta;
-} */
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #DB8876}
@@ -379,11 +375,6 @@ dialog {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
-  background-color: #901C1C;
 }
 
 
