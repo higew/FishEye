@@ -21,7 +21,7 @@ data.photographer.map((photographer) => {
                     <h3 class="tagline" aria-label="Citation">${photographer.tagline}</h3>
                 </div>
                 <button class="contact_button" aria-label="Contact" onclick="displayModal()">Contactez-moi</button>
-                <img src='assets/photographers/${photographer.portrait}' alt='Portrait de ${photographer.name}'>
+                <img src='assets/photographers/${photographer.portrait}' alt='Portrait de ${photographer.name}' tabindex="0">
             </div>
             `;
       photographerContainer.appendChild(photographerCard);
@@ -52,7 +52,7 @@ data.photographer.map((photographer) => {
           addIndex();
         } else {
           let htmlTemplate = `
-                      <video src='assets/images/${media.video}' type="video/mp4" alt='${media.title}'></video>
+                      <video src='assets/images/${media.video}' type="video/mp4" alt='${media.title}' role="button" tabindex="0"></video>
                       <div class='media-info'>
                           <p>${media.title}</p>
                           <p><span class="like-count">${media.likes}</span> <i class="fa-regular fa-heart heart" alt="Bouton Like pour ${media.title}" tabindex="0"></i></p>
@@ -138,6 +138,39 @@ data.photographer.map((photographer) => {
       like();
     }
   });
+  // btnFilter.addEventListener("keypress", (event) => {
+  //   if (event.key === "Enter"){
+  //   const type = event.target.getAttribute("data-filter-type");
+  //   if (type === "date") {
+  //     buttonOpenMenu.innerHTML = "Date";
+  //     value = "date";
+  //     filter(value, arrayMedia);
+  //     mediaContainer.innerHTML = "";
+  //     mediaFiltered();
+  //     openModalPic();
+  //     totalLikeCount();
+  //     like();
+  //   } else if (type === "popularity") {
+  //     buttonOpenMenu.innerHTML = "Popularité";
+  //     value = "popularity";
+  //     filter(value, arrayMedia);
+  //     mediaContainer.innerHTML = "";
+  //     mediaFiltered();
+  //     openModalPic();
+  //     totalLikeCount();
+  //     like();
+  //   } else if (type === "title") {
+  //     buttonOpenMenu.innerHTML = "Titre";
+  //     value = "title";
+  //     filter(value, arrayMedia);
+  //     mediaContainer.innerHTML = "";
+  //     mediaFiltered();
+  //     openModalPic();
+  //     totalLikeCount();
+  //     like();
+  //   }
+  // }
+  // });
 
   //Total likes and price area
   data.photographer.filter((photographer) => {

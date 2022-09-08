@@ -25,6 +25,29 @@ function like() {
                 totalLikeArea.innerHTML = parseInt(parseInt(totalLikeArea.innerHTML) + 1);
             }
         })
+        heartIcon[i].addEventListener("keypress", (event) => {
+            event.preventDefault();
+            if (event.key === "Enter") {
+                //If already liked, remove 1
+                if (likeSpan[i].classList.contains('liked')) {
+                    heartIcon[i].classList.remove('fa-solid');
+                    heartIcon[i].classList.add('fa-regular');
+                    likeSpan[i].classList.remove('liked');
+                    likeSpan[i].innerHTML = parseInt(likeSpan[i].innerHTML) - 1;
+                    //Then remove it to the total
+                    totalLikeArea.innerHTML = (parseInt(totalLikeArea.innerHTML - 1));
+                }
+                //if not, add 1 
+                else {
+                    likeSpan[i].classList.add('liked');
+                    heartIcon[i].classList.remove('fa-regular');
+                    heartIcon[i].classList.add('fa-solid');
+                    likeSpan[i].innerHTML = parseInt(likeSpan[i].innerHTML) + 1;
+                    //Then add it to the total
+                    totalLikeArea.innerHTML = parseInt(parseInt(totalLikeArea.innerHTML) + 1);
+                }
+            }
+        })
     }
 }
 

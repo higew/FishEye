@@ -20,13 +20,20 @@ function closeContactModal() {
 const firstName = document.getElementById('first');
 const lastName = document.getElementById('last');
 const email = document.getElementById('email');
+const message = document.getElementById('message');
 const modalBody = document.querySelector(".modal");
+const modal = document.getElementById("contact_modal");
 
 
 // eventListener
 firstName.addEventListener('input', isFirstNameValid);
 lastName.addEventListener('input', isLastNameValid);
 email.addEventListener('input', isEmailValid);
+modal.addEventListener('keypress', (event) => {
+    if(event.key === "Enter") {
+        modal.style.display = "none";
+    }
+});
 
 
 // Display or remove error message
@@ -80,7 +87,7 @@ function isEmailValid () {
 }
 
 function validate () {
-    console.log("Email : " + email.value + " Prénom : " + firstName.value + " Nom : " + lastName.value);
+    console.log("Email : " + email.value + ", Prénom : " + firstName.value + ", Nom : " + lastName.value + ", Message : " + message.value);
     //clean the modal and add the text validation
     document.querySelector('.modal').innerHTML = " ";
     modalBody.style.height = "800px";
